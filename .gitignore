@@ -1,3 +1,7 @@
 .idea/
 dependencies/
 input_files/
+outfile
+outfile(1).txt
+outfile(2).txt
+outfile.txt

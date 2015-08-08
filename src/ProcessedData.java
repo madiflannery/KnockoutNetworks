@@ -11,11 +11,13 @@ public class ProcessedData {
     private ArrayList<String> geneList;
     private HashMap<String, Protein> proteins;
     private ArrayList<ArrayList<PhysicalEntity>> complexes;
+    private boolean toAdd;
 
     public ProcessedData() {
         this.geneList = null;
         this.proteins = null;
         this.complexes = null;
+        this.toAdd = false;
     }
 
     public ArrayList<String> getGeneList() {
@@ -40,5 +42,13 @@ public class ProcessedData {
 
     public void setComplexes(ArrayList<ArrayList<PhysicalEntity>> complexes) {
         this.complexes = complexes;
+    }
+
+    public boolean getToAdd() {
+        return toAdd;
+    }
+
+    public void setToAdd(boolean toAdd) {
+        this.toAdd = toAdd;
     }
 }

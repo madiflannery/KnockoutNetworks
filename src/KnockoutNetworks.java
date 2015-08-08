@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.regex.Pattern;
 import org.biopax.paxtools.model.level3.*;
 import org.biopax.paxtools.model.Model;
@@ -32,14 +33,14 @@ public class KnockoutNetworks {
     private static final String NETWORK_FILE = "species.txt";
     private static final String KNOCKOUT_GENE_LIST = "screen_gene_list_uniprot.txt";
     private static final String DIFF_EXP_FILE = "off_genes_fromdiff_uniprot.txt";
+    private static final String OUTPUT_FILENAME = "outfile";
     private static String biopaxFilename;
 
     //Directories
-    private static final String IFILE_DIR = "input_files\\";
     private static String outputDir;
+    private static String inputDir;
 
-    private static final int RDF_COL = 1; //0 indexed
-    private static final int INPUT_COL = 5;
+    private static final int RDF_COL = 1; //0 indexed, for network species.txt file
 
     private static int rdfLen = 0;
 
@@ -54,8 +55,8 @@ public class KnockoutNetworks {
 
         //open and process all files
         System.out.println("Reading data...");
-        ArrayList<String[]> network = readFile(NETWORK_FILE, false);
-        File biopaxFile = new File(biopaxFilename);
+        ArrayList<ArrayList<String>> network = readFile(inputDir + NETWORK_FILE);
+        File biopaxFile = new File(inputDir + biopaxFilename);
 
 
         System.out.println("Deleting old output files...");
@@ -70,15 +71,32 @@ public class KnockoutNetworks {
 
         //BACKGROUND FILE PROCESSING
         ProcessedData background = new ProcessedData();
-        background.setGeneList(openGeneList(DIFF_EXP_FILE));
+        background.setGeneList(openGeneList(inputDir + DIFF_EXP_FILE));
         background.setProteins(processBackgroundGeneList(uniprotMap, background.getGeneList()));
         background.setComplexes(mapAllComplexes(background.getProteins()));
 
-        HashMap<String, String> rdfToBGVal = genBackgroundFile(network, bg_prots, bg_complexes);
-
         //FUNCTIONAL SCREEN PROCESSING
-        ArrayList<String> geneList_screen = openGeneList(KNOCKOUT_GENE_LIST);
+        ArrayList<String> geneList_screen = openGeneList(inputDir + KNOCKOUT_GENE_LIST);
+        ArrayList<ProcessedData> knockouts = new ArrayList<>();
+        for(String uniprot : geneList_screen) {
+            ProcessedData ko = new ProcessedData();
+            ArrayList<String> uprot = new ArrayList<>();
+            uprot.add(uniprot);
+            ko.setGeneList(uprot);
+            ko.setProteins(processBackgroundGeneList(uniprotMap, ko.getGeneList()));
+            ko.setComplexes(mapAllComplexes(ko.getProteins()));
+            knockouts.add(ko);
+        }
+
+        //CREATE FILES
+        HashMap<String, String> bg_network_rdf = createBackgroundRdfs(network, background.getProteins(), background.getComplexes());
+        addBGtoOutputFile(network, bg_network_rdf);
+        determineToMap(network, bg_network_rdf, background, knockouts);
+        addKOtoOutputFile(network, bg_network_rdf, background, knockouts);
+        //System.out.print(network);
     }
+
+
 
     /**
      * Initialise the necessary parameters using the parameters.txt file
@@ -107,53 +125,47 @@ public class KnockoutNetworks {
         biopaxFilename = params.get("biopax_file");
 
         //if theres no \ at the end of the filepath
-        if(params.get("file_directory").substring(params.get("file_directory").length()).equals("\\")) {
-            outputDir = params.get("file_directory");
+        if(params.get("out_file_directory").substring(params.get("out_file_directory").length()).equals("\\")) {
+            outputDir = params.get("out_file_directory");
         }
         else {
-            outputDir = params.get("file_directory") + "\\";
+            outputDir = params.get("out_file_directory") + "\\";
+        }
+
+        //if theres no \ at the end of the filepath
+        if(params.get("in_file_directory").substring(params.get("in_file_directory").length()).equals("\\")) {
+            inputDir = params.get("in_file_directory");
+        }
+        else {
+            inputDir = params.get("in_file_directory") + "\\";
         }
 
     }
 
-    //TODO: CHANGE THIS FUNCTION TO RETURN AN ARRAYLIST<ARRAYLIST<STRING>>
-    //TODO: CHANGE THIS FUNCTION TO REMOVE ISPHOSPHO PARAMETER
     /**
-     * Read the network or phosphoproteomics file.
-     * If phosphoproteomics file, the file must have a header to process
-     * to get cell line names.
+     * Read a file.
      *
      * @param filename Filename of the file to read
-     * @param isPhospho <code>True</code> if we need to process the cell line names
-     * @return ArrayList containing each line as array of strings
+     * @return ArrayList containing each line as ArrayList of strings
      */
-    public static ArrayList<String[]> readFile(String filename, boolean isPhospho) {
+    public static ArrayList<ArrayList<String>> readFile(String filename) {
         //storage of data
-        ArrayList<String[]> finalData = new ArrayList<>();
+        ArrayList<ArrayList<String>> finalData = new ArrayList<>();
 
         //open file
         File file = new File(filename);
         try(BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
-            //if we need to process the cell lines
-            if(isPhospho) {
-                //the first line is a header
-                if((line = br.readLine()) != null) {
-                    String[] splitted = line.split("\t");
-                    //create the cell line array
-                    cellLines = new String[cellColNums.length];
-                    for(int i = 0; i < cellColNums.length; i++) {
-                        cellLines[i] = splitted[cellColNums[i]];
-                    }
-                }
-            }
+
             //process the data
             while((line = br.readLine()) != null) {
-                finalData.add(line.split("\t"));
+                finalData.add(arrayToArrayList(line.split("\t")));
             }
+
             br.close();
         } catch(IOException e) {
             //exit on error
+            System.err.println(filename);
             e.printStackTrace();
             System.exit(1);
         }
@@ -161,18 +173,36 @@ public class KnockoutNetworks {
         return finalData;
     }
 
+    private static ArrayList<String> arrayToArrayList(String[] arr) {
+        ArrayList<String> arrlist = new ArrayList<>();
+        for(String s : arr) {
+            arrlist.add(s.trim());
+        }
+        return arrlist;
+    }
+
     /**
      * Deletes all output files if they exist to avoid file corruption
      */
     private static void deleteAllFiles() {
-        //TODO: ADD IN DELETION OF ALL OUTPUT FILES
+        String temp_filename =OUTPUT_FILENAME + ".txt";
+        deleteFile(temp_filename);
+        int temp = 1;
+
+        //Keep trying to create directory with new number until successful
+        do{
+            temp_filename = OUTPUT_FILENAME + "(" + temp + ")" + ".txt";
+            temp++;
+        } while(deleteFile(temp_filename));
+
     }
 
     /**
      * Deletes an individual file if it exists
      * @param filename The name of the file to delete
+     * @return true if deleted, false if doesnt exist
      */
-    private static void deleteFile(String filename) {
+    private static boolean deleteFile(String filename) {
         //check file exists
         File file = new File(filename);
         boolean exists = file.exists();
@@ -180,6 +210,10 @@ public class KnockoutNetworks {
         //delete file
         if(exists) {
             file.delete();
+            return true;
+        }
+        else {
+            return false;
         }
     }
 
@@ -194,8 +228,7 @@ public class KnockoutNetworks {
             //Read BioPAX file.
             biopaxModel = readModelFromFile(biopaxFile);
             //Map for return....
-            HashMap<String, HashSet<Protein>> uniProtMap
-                    = new HashMap<String, HashSet<Protein>>();
+            HashMap<String, HashSet<Protein>> uniProtMap = new HashMap<>();
             //For each Protein in the model:
             for (Protein protein : biopaxModel.getObjects(Protein.class)) {
                 //Get the UniProt accession.
@@ -221,7 +254,7 @@ public class KnockoutNetworks {
                     uniProtMap.get(uniProt).add(protein);
                 } else {
                     //New entry, instantiate new set.
-                    HashSet<Protein> newSet = new HashSet<Protein>();
+                    HashSet<Protein> newSet = new HashSet<>();
                     newSet.add(protein);
                     uniProtMap.put(uniProt, newSet);
                 }
@@ -453,5 +486,171 @@ public class KnockoutNetworks {
         return seen;
     }
 
+    private static HashMap<String, String> createBackgroundRdfs(ArrayList<ArrayList<String>> network, HashMap<String, Protein> bg_prots, ArrayList<ArrayList<PhysicalEntity>> bg_complexes) {
+        HashMap<String, String> rdf_to_status = new HashMap<>();
+        for(ArrayList<String> line : network) {
+            boolean setFree = true;
+            if(line.get(RDF_COL).contains("Protein")) {
+                Protein p = bg_prots.get(line.get(RDF_COL));
+                if(p != null) {
+                    //we have a matching protein, set inactive
+                    rdf_to_status.put(line.get(RDF_COL), "INACTIVE");
+                    setFree = false;
+                }
+            }
+            else if(line.get(RDF_COL).contains("Complex")) {
+                ArrayList<PhysicalEntity> complexTree = findComplexTree(line.get(RDF_COL), bg_complexes);
+                if(complexTree != null) {
+                    //we have a complex in tree, set inactive
+                    rdf_to_status.put(line.get(RDF_COL), "INACTIVE");
+                    setFree = false;
+                }
+            }
+            if(setFree) {
+                rdf_to_status.put(line.get(RDF_COL), "FREE");
+            }
+        }
+        return rdf_to_status;
+    }
+
+    private static void addBGtoOutputFile(ArrayList<ArrayList<String>> network, HashMap<String, String> bg_network_rdf) {
+        for(int i = 0; i < network.size(); i++) {
+            network.get(i).add(bg_network_rdf.get(network.get(i).get(RDF_COL)));
+        }
+    }
+
+    private static void addKOtoOutputFile(ArrayList<ArrayList<String>> network, HashMap<String, String> bg_network_rdf, ProcessedData background, ArrayList<ProcessedData> knockouts) {
+        int count = 1;
+        int nummapped = 0;
+        for(ProcessedData ko : knockouts) {
+            if(ko.getToAdd()) {
+                boolean mapped = false;
+                for (int i = 0; i < network.size(); i++) {
+                    boolean setFree = true;
+                    if (network.get(i).get(RDF_COL).contains("Protein")) {
+                        Protein p = ko.getProteins().get(network.get(i).get(RDF_COL));
+                        if (p != null) {
+                            //we have a matching protein, set inactive
+                            network.get(i).add("INACTIVE");
+                            setFree = false;
+                            mapped = true;
+                        }
+                    } else if (network.get(i).get(RDF_COL).contains("Complex")) {
+                        ArrayList<PhysicalEntity> complexTree = findComplexTree(network.get(i).get(RDF_COL), ko.getComplexes());
+                        if (complexTree != null) {
+                            //we have a complex in tree, set inactive
+                            network.get(i).add("INACTIVE");
+                            setFree = false;
+                            mapped = true;
+                        }
+                    }
+                    if (setFree) {
+                        network.get(i).add(bg_network_rdf.get(network.get(i).get(RDF_COL)));
+                    }
+                }
+                if (mapped) {
+                    nummapped++;
+                }
+                count++;
+                if ((count % 50) == 0) {
+                    //write current network list to file
+                    writeToFile(network);
+
+                    //reset network list
+                    network = readFile(inputDir + NETWORK_FILE);
+                    count++;
+
+                    //re-add background RDFs
+                    addBGtoOutputFile(network, bg_network_rdf);
+                }
+            }
+        }
+        //write current network list to file
+        writeToFile(network);
+        System.out.println(nummapped);
+    }
+
+
+    private static void determineToMap(ArrayList<ArrayList<String>> network, HashMap<String, String> bg_network_rdf, ProcessedData background, ArrayList<ProcessedData> knockouts) {
+        for(ProcessedData ko : knockouts) {
+            for(int i = 0; i < network.size(); i++) {
+                boolean setFree = true;
+                if(network.get(i).get(RDF_COL).contains("Protein")) {
+                    Protein p = ko.getProteins().get(network.get(i).get(RDF_COL));
+                    if(p != null) {
+                        //we have a matching protein, set inactive
+                        ko.setToAdd(true);
+                    }
+                }
+                else if(network.get(i).get(RDF_COL).contains("Complex")) {
+                    ArrayList<PhysicalEntity> complexTree = findComplexTree(network.get(i).get(RDF_COL), ko.getComplexes());
+                    if(complexTree != null) {
+                        //we have a complex in tree, set inactive
+                        ko.setToAdd(true);
+                    }
+                }
+            }
+        }
+    }
+
+    private static void writeToFile(ArrayList<ArrayList<String>> network) {
+        String filename = findFilename();
+        File outfile = new File(filename);
+        try {
+            //open normal file and active file
+            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(outfile)));
+
+            for (ArrayList<String> line : network) {
+                StringJoiner strbuild = new StringJoiner("\t");
+                for (String s : line) {
+                    strbuild.add(s);
+                }
+                out.println(strbuild.toString());
+            }
+            out.close();
+        }
+        catch (Exception e) {
+            System.err.println(e.toString());
+        }
+    }
+
+    /**
+     * Function to find a complex tree that a given complex is a part of. Returns null if not found.
+     * @param rdf The RDF of the complex to search for
+     * @param complexes ArrayList of complex trees to search
+     * @return ArrayList - the complex tree containing complex. Null if no trees found
+     */
+    private static ArrayList<PhysicalEntity> findComplexTree(String rdf, ArrayList<ArrayList<PhysicalEntity>> complexes) {
+        //for each tree
+        for (ArrayList<PhysicalEntity> tree : complexes) {
+            //for each physical entity in complex
+            for(PhysicalEntity pe : tree) {
+                //if we have a match, return tree
+                if(pe.getRDFId().substring(rdfLen).equals(rdf)) {
+                    return tree;
+                }
+            }
+        }
+        //not found
+        return null;
+    }
+
+    private static String findFilename() {
+        String temp_filename =OUTPUT_FILENAME + ".txt";
+        File temp_file = new File(temp_filename);
+
+        //If the directory doesnt exist, create it
+        if(temp_file.exists()) {
+            int temp = 1;
+
+            //Keep trying to create directory with new number until successful
+            do{
+                temp_filename = OUTPUT_FILENAME + "(" + temp + ")" + ".txt";
+                temp_file = new File(temp_filename);
+                temp++;
+            } while(temp_file.exists());
+        }
+        return temp_filename;
+    }
 }
 

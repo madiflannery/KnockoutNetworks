@@ -1,0 +1,2 @@
+file_directory =  C:\Users\Madison\KnockoutNetworks\fastdas_files\
+biopax_file = curatedModel.owl

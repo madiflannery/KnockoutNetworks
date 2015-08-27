@@ -69,6 +69,7 @@ public class KnockoutNetworks {
 
         System.out.println("Creating UniProt Map...");
         HashMap<String, HashSet<Protein>> uniprotMap = getUniProtMap(biopaxFile);
+        uniprotMap = updateUniprotIdsMap(uniprotMap);
 
         //get the length of the garbage at the start of the RDF's
         rdfLen = (uniprotMap.values().iterator().next().iterator().next().getRDFId().indexOf("#"))+1;
@@ -81,11 +82,6 @@ public class KnockoutNetworks {
 
         //FUNCTIONAL SCREEN PROCESSING
         ArrayList<String> geneList_screen = openGeneList(inputDir + KNOCKOUT_GENE_LIST);
-
-        updateUniprotIdsMap(uniprotMap);
-        updateUniprotIdsProt(background.getGeneList());
-        updateUniprotIdsProt(geneList_screen);
-
 
 
         ArrayList<ProcessedData> knockouts = new ArrayList<>();
@@ -665,26 +661,31 @@ public class KnockoutNetworks {
     }
 
 
-    public static void updateUniprotIdsMap(HashMap<String, HashSet<Protein>> uniprotMap) {
-		HashMap<String, String> uniprotIds = readUniprotUpdateFile((new File(UNIPROT_UPDATE_FILE)).toPath());
+    public static HashMap<String, HashSet<Protein>> updateUniprotIdsMap(HashMap<String, HashSet<Protein>> uniprotMap) {
+		HashMap<String, ArrayList<String>> uniprotIds = readUniprotUpdateFile((new File(UNIPROT_UPDATE_FILE)).toPath());
 		ArrayList<String> mapped = new ArrayList<>();
+        HashMap<String, HashSet<Protein>> uniprotMap_temp = new HashMap<>(uniprotMap);
 		for (String s : uniprotMap.keySet()) {
 			if (uniprotIds.get(s) != null) {
-                HashSet<Protein> temp = uniprotMap.remove(s);
-                uniprotMap.put(uniprotIds.get(s), temp);
-				mapped.add(s);
+                HashSet<Protein> temp = uniprotMap_temp.remove(s);
+                for(String id : uniprotIds.get(s)) {
+                    uniprotMap_temp.put(id, temp);
+                }
+
 			}
 		}
 
-		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(toUpdate, true)))) {
-            out.print("----------------- MAP ------------------");
-			for (String s : mapped) {
-				out.println(s);
-			}
-		}
-		catch (IOException e) {
-			System.err.println(e.toString());
-		}
+        return uniprotMap_temp;
+
+//		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(toUpdate, true)))) {
+//            out.print("----------------- MAP ------------------");
+//			for (String s : mapped) {
+//				out.println(s);
+//			}
+//		}
+//		catch (IOException e) {
+//			System.err.println(e.toString());
+//		}
 
 	}
 
@@ -711,20 +712,22 @@ public class KnockoutNetworks {
 //	}
 
     //TODO: change this as one secondary uniprot can be split into two primaries
-    public static HashMap<String, String> readUniprotUpdateFile(Path path) {
+    public static HashMap<String, ArrayList<String>> readUniprotUpdateFile(Path path) {
 		//temp storage of data
-		HashMap<String, String> hm = new HashMap<>();
+		HashMap<String, ArrayList<String>> hm = new HashMap<>();
 
 		//read all lines from file
 		try {
 			List<String> tempData = Files.readAllLines(path);
 			for (String str : tempData) {
 				String[] s = str.split("\t");
-				try {
-					hm.put(s[0], s[1]);
-				}
-				catch (Exception e) {
-					break;
+				if(hm.get(s[0]) != null) {
+                    hm.get(s[0]).add(s[1]);
+                }
+                else {
+                    ArrayList<String> tmp = new ArrayList<String>();
+                    tmp.add(s[1]);
+					hm.put(s[0], tmp);
 				}
 			}
 		} catch (IOException e) {

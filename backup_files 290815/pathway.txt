@@ -1,0 +1,833 @@
+Immune System
+	Cytokine Signaling in Immune system
+		Interferon Signaling
+			Interferon alpha/beta signaling
+				Regulation of IFNA signaling
+			Interferon gamma signaling
+				Regulation of IFNG signaling
+			Antiviral mechanism by IFN-stimulated genes
+				ISG15 antiviral mechanism
+		Growth hormone receptor signaling
+		Prolactin receptor signaling
+		Signaling by Interleukins
+			Interleukin-2 signaling
+				Interleukin receptor SHC signaling
+				RAF/MAP kinase cascade
+					RAF activation
+					MEK activation
+						RAF phosphorylates MEK
+					ERK activation
+						ERK2 activation
+						ERK1 activation
+			Interleukin-3, 5 and GM-CSF signaling
+				Regulation of signaling by CBL
+			Interleukin-6 signaling
+			Interleukin-7 signaling
+			Interleukin-1 processing
+			Interleukin-1 signaling
+	Innate Immune System
+		Cytosolic sensors of pathogen-associated DNA
+			ZBP1(DAI) mediated induction of type I IFNs
+				IRF3 mediated activation of type 1 IFN
+				RIP-mediated NFkB activation via ZBP1
+			STING mediated induction of host immune responses
+				IRF3-mediated induction of type I IFN
+				STAT6-mediated induction of chemokines
+			LRR FLII-interacting protein 1 (LRRFIP1) activates type I IFN production
+			DEx/H-box helicases activate type I IFN and inflammatory cytokines production
+			Regulation of innate immune responses to cytosolic DNA
+				Regulation by TREX1
+		Fcgamma receptor (FCGR) dependent phagocytosis
+			FCGR activation
+			Regulation of actin dynamics for phagocytic cup formation
+			Role of phospholipids in phagocytosis
+		Advanced glycosylation endproduct receptor signaling
+		RIG-I/MDA5 mediated induction of IFN-alpha/beta pathways
+			TRAF3-dependent IRF activation pathway
+			NF-kB activation through FADD/RIP-1 pathway mediated by caspase-8 and -10
+			TRAF6 mediated IRF7 activation
+			TRAF6 mediated NF-kB activation
+			Negative regulators of RIG-I/MDA5 signaling
+		DAP12 interactions
+			DAP12 signaling
+				PIP3 activates AKT signaling
+					AKT phosphorylates targets in the cytosol
+					AKT phosphorylates targets in the nucleus
+					Negative regulation of the PI3K/AKT network
+				DAG and IP3 signaling
+					CaM pathway
+						Calmodulin induced events
+							PKA-mediated phosphorylation of CREB
+								PKA activation
+							CaMK IV-mediated phosphorylation of CREB
+							Cam-PDE 1 activation
+		Fc epsilon receptor (FCERI) signaling
+			FCERI mediated MAPK activation
+			FCERI mediated Ca+2 mobilization
+			FCERI mediated NF-kB activation
+			Role of LAT2/NTAL/LAB on calcium mobilization
+		Defensins
+			Alpha-defensins
+			Beta defensins
+		Nucleotide-binding domain, leucine rich repeat containing receptor (NLR) signaling pathways
+			NOD1/2 Signaling Pathway
+			Inflammasomes
+				The AIM2 inflammasome
+				The NLRP3 inflammasome
+				The NLRP1 inflammasome
+				The IPAF inflammasome
+		Complement cascade
+			Terminal pathway of complement
+			Activation of C3 and C5
+			Regulation of Complement cascade
+			Initial triggering of complement
+				Alternative complement activation
+				Creation of C4 and C2 activators
+					Classical antibody-mediated complement activation
+					Lectin pathway of complement activation
+						Ficolins bind to repetitive carbohydrate structures on the target cell surface
+		Toll-Like Receptors Cascades
+			Trafficking and processing of endosomal TLR
+			Toll Like Receptor 10 (TLR10) Cascade
+				MyD88 cascade initiated on plasma membrane
+					IRAK1 recruits IKK complex
+					IRAK2 mediated activation of TAK1 complex
+					TAK1 activates NFkB by phosphorylation and activation of IKKs complex
+					MAP kinase activation in TLR cascade
+						MAPK targets/ Nuclear events mediated by MAP kinases
+							ERK/MAPK targets
+								ERKs are inactivated
+							CREB phosphorylation
+							Activation of the AP-1 family of transcription factors
+						JNK (c-Jun kinases) phosphorylation and activation mediated by activated human TAK1
+						activated TAK1 mediates p38 MAPK activation
+			Toll Like Receptor 5 (TLR5) Cascade
+			Toll Like Receptor 7/8 (TLR7/8) Cascade
+				MyD88 dependent cascade initiated on endosome
+					TRAF6 mediated induction of NFkB and MAP kinases upon TLR7/8 or 9 activation
+						IRAK1 recruits IKK complex upon TLR7/8 or 9 stimulation
+						IRAK2 mediated activation of TAK1 complex upon TLR7/8 or 9 stimulation
+					TRAF6 mediated IRF7 activation in TLR7/8 or 9 signaling
+			Toll Like Receptor 2 (TLR2) Cascade
+				Toll Like Receptor TLR1:TLR2 Cascade
+					MyD88:Mal cascade initiated on plasma membrane
+				Toll Like Receptor TLR6:TLR2 Cascade
+			Toll Like Receptor 3 (TLR3) Cascade
+				MyD88-independent cascade
+					TRIF-mediated TLR3/TLR4 signaling
+						TRIF-mediated programmed cell death
+						TRAF6 mediated induction of TAK1 complex
+						Activation of IRF3/IRF7 mediated by TBK1/IKK epsilon
+						IKK complex recruitment mediated by RIP1
+			Toll Like Receptor 9 (TLR9) Cascade
+			Toll Like Receptor 4 (TLR4) Cascade
+				Transfer of LPS from LBP carrier to CD14
+				Activated TLR4 signalling
+	Adaptive Immune System
+		B Cell Activation
+			Antigen Activates B Cell Receptor Leading to Generation of Second Messengers
+			Downstream Signaling Events Of B Cell Receptor (BCR)
+				Activation of NF-kappaB in B Cells
+				Activation of RAS in B Cells
+		TCR signaling
+			Phosphorylation of CD3 and TCR zeta chains
+			Translocation of ZAP-70 to Immunological synapse
+			Generation of second messenger molecules
+			Downstream TCR signaling
+		Costimulation by the CD28 family
+			CD28 co-stimulation
+				CD28 dependent PI3K/Akt signaling
+				CD28 dependent Vav1 pathway
+			CTLA4 inhibitory signaling
+			PD-1 signaling
+		MHC class II antigen presentation
+		Immunoregulatory interactions between a Lymphoid and a non-Lymphoid cell
+		Rap1 signalling
+		Class I MHC mediated antigen processing & presentation
+			Antigen Presentation: Folding, assembly and peptide loading of class I MHC
+			Antigen processing-Cross presentation
+				Cross-presentation of particulate exogenous antigens (phagosomes)
+				ER-Phagosome pathway
+				Endosomal/Vacuolar pathway
+				Cross-presentation of soluble exogenous antigens (endosomes)
+			Antigen processing: Ubiquitination & Proteasome degradation
+SUMOylation
+	Processing and Activation of SUMO
+		Conjugation of SUMO to E1 (UBA2:SAE1)
+		Transfer of SUMO from E1 to E2 (UBE2I, UBC9)
+		Proteolytic Processing of SUMO
+Receptor-ligand binding initiates the second proteolytic cleavage of Notch receptor
+Cell Cycle
+	Chromosome Maintenance
+		Nucleosome assembly
+			Deposition of New CENPA-containing Nucleosomes at the Centromere
+		Telomere Maintenance
+			Packaging Of Telomere Ends
+			Extension of Telomeres
+				Telomere C-strand (Lagging Strand) Synthesis
+					Telomere C-strand synthesis initiation
+					Polymerase switching on the C-strand of the telomere
+					Processive synthesis on the C-strand of the telomere
+						Removal of the Flap Intermediate from the C-strand
+				Telomere Extension By Telomerase
+	Cell Cycle, Mitotic
+		S Phase
+			Cyclin A:Cdk2-associated events at S phase entry
+				SCF(Skp2)-mediated degradation of p27/p21
+			Ubiquitin-dependent degradation of Cyclin D
+				Ubiquitin-dependent degradation of Cyclin D1
+			Establishment of Sister Chromatid Cohesion
+		Mitotic G2-G2/M phases
+			G2 Phase
+			G2/M Transition
+				Regulation of PLK1 Activity at G2/M Transition
+				Polo-like kinase mediated events
+				Centrosome maturation
+					Recruitment of mitotic centrosome proteins and complexes
+						Recruitment of NuMA to mitotic centrosomes
+					Loss of proteins required for interphase microtubule organization from the centrosome
+						Loss of Nlp from mitotic centrosomes
+				Cyclin A/B1 associated events during G2/M transition
+					Phosphorylation of proteins involved in the G2/M transition by Cyclin A:Cdc2 complexes
+				Cyclin B2 mediated events
+		Regulation of mitotic cell cycle
+			APC/C-mediated degradation of cell cycle proteins
+				Conversion from APC/C:Cdc20 to APC/C:Cdh1 in late anaphase
+				APC/C:Cdh1 mediated degradation of Cdc20 and other APC/C:Cdh1 targeted proteins in late mitosis/early G1
+				Autodegradation of Cdh1 by Cdh1:APC/C
+				Regulation of APC/C activators between G1/S and early anaphase
+					Inhibition of the proteolytic activity of APC/C required for the onset of anaphase by mitotic spindle checkpoint components
+						Inactivation of APC/C via direct inhibition of the APC/C complex
+					Phosphorylation of Emi1
+					SCF-beta-TrCP mediated degradation of Emi1
+				Activation of APC/C and APC/C:Cdc20 mediated degradation of mitotic proteins
+					Phosphorylation of the APC/C
+					APC/C:Cdc20 mediated degradation of mitotic proteins
+						APC/C:Cdc20 mediated degradation of Cyclin B
+						APC/C:Cdc20 mediated degradation of Securin
+		M Phase
+			cell division
+				Cohesin Loading onto Chromatin
+			Mitotic Prometaphase
+				Resolution of Sister Chromatid Cohesion
+				Condensation of Prometaphase Chromosomes
+			Mitotic Metaphase and Anaphase
+				Mitotic Metaphase
+				Mitotic Metaphase/Anaphase Transition
+				Mitotic Anaphase
+					Separation of Sister Chromatids
+					Nuclear Envelope Reassembly
+						Initiation of Nuclear Envelope Reformation
+			Mitotic Prophase
+				Nuclear Envelope Breakdown
+					Activation of NIMA Kinases NEK9, NEK6, NEK7
+					Nuclear Pore Complex (NPC) Disassembly
+					Clearance of Nuclear Envelope Membranes from Chromatin
+				Golgi Cisternae Pericentriolar Stack Reorganization
+				MASTL Facilitates Mitotic Progression
+		Mitotic G1-G1/S phases
+			G1 Phase
+				Cyclin D associated events in G1
+			G1/S Transition
+				Cyclin E associated events during G1/S transition
+					Phosphorylation of proteins involved in G1/S transition by active Cyclin E:Cdk2 complexes
+					Ubiquitin-Dependent Degradation of Cyclin E
+				G1/S-Specific Transcription
+				E2F mediated regulation of DNA replication
+					Inhibition of replication initiation of damaged DNA by RB1/E2F1
+					E2F-enabled inhibition of pre-replication complex formation
+			G0 and Early G1
+	Cell Cycle Checkpoints
+		Mitotic Spindle Checkpoint
+			Amplification of signal from the kinetochores
+				Amplification of signal from unattached kinetochores via a MAD2 inhibitory signal
+		G2/M Checkpoints
+			G2/M DNA replication checkpoint
+			Activation of ATR in response to replication stress
+			G2/M DNA damage checkpoint
+				Chk1/Chk2(Cds1) mediated inactivation of Cyclin B:Cdk1 complex
+		G1/S DNA Damage Checkpoints
+			p53-Dependent G1/S DNA damage checkpoint
+				p53-Dependent G1 DNA Damage Response
+					Stabilization of p53
+						Autodegradation of the E3 ubiquitin ligase COP1
+					Transcriptional activation of p53 responsive genes
+						Transcriptional activation of cell cycle inhibitor p21
+			p53-Independent G1/S DNA damage checkpoint
+				p53-Independent DNA Damage Response
+					Ubiquitin Mediated Degradation of Phosphorylated Cdc25A
+Elongation arrest and recovery
+Membrane Trafficking
+	ER to Golgi Transport
+		COPII (Coat Protein 2) Mediated Vesicle Transport
+	Golgi to ER Retrograde Transport
+		COPI Mediated Transport
+	trans-Golgi Network Vesicle Budding
+		Clathrin derived vesicle budding
+			Golgi Associated Vesicle Biogenesis
+			Lysosome Vesicle Biogenesis
+	Endosomal Sorting Complex Required For Transport (ESCRT)
+	Gap junction trafficking and regulation
+		Regulation of gap junction activity
+			c-src mediated regulation of Cx43 function and closure of gap junctions
+		Gap junction trafficking
+			Gap junction degradation
+				Formation of annular gap junctions
+			Gap junction assembly
+				Transport of connexins along the secretory pathway
+				Oligomerization of connexins into connexons
+				Transport of connexons to the plasma membrane
+					Microtubule-dependent trafficking of connexons from Golgi to the plasma membrane
+	Translocation of GLUT4 to the Plasma Membrane
+A third proteolytic cleavage releases NICD
+Cell-Cell communication
+	Signal regulatory protein (SIRP) family interactions
+	DSCAM interactions
+	Cell junction organization
+		Cell-cell junction organization
+			Adherens junctions interactions
+				Nectin/Necl trans heterodimerization
+			Tight junction interactions
+		Cell-extracellular matrix interactions
+			Localization of the PINCH-ILK-PARVIN complex to focal adhesions
+			Regulation of cytoskeletal remodeling and cell spreading by IPP complex components
+		Type I hemidesmosome assembly
+	Nephrin interactions
+Mitotic M-M/G1 phases
+	M Phase
+		cell division
+			Cohesin Loading onto Chromatin
+		Mitotic Prometaphase
+			Resolution of Sister Chromatid Cohesion
+			Condensation of Prometaphase Chromosomes
+		Mitotic Metaphase and Anaphase
+			Mitotic Metaphase
+			Mitotic Metaphase/Anaphase Transition
+			Mitotic Anaphase
+				Separation of Sister Chromatids
+				Nuclear Envelope Reassembly
+					Initiation of Nuclear Envelope Reformation
+		Mitotic Prophase
+			Nuclear Envelope Breakdown
+				Activation of NIMA Kinases NEK9, NEK6, NEK7
+				Nuclear Pore Complex (NPC) Disassembly
+				Clearance of Nuclear Envelope Membranes from Chromatin
+			Golgi Cisternae Pericentriolar Stack Reorganization
+			MASTL Facilitates Mitotic Progression
+Disease
+	Signaling by EGFR in Cancer
+		Signaling by EGFR
+			EGFR interacts with phospholipase C-gamma
+				DAG and IP3 signaling
+					CaM pathway
+						Calmodulin induced events
+							PKA-mediated phosphorylation of CREB
+								PKA activation
+							CaMK IV-mediated phosphorylation of CREB
+							Cam-PDE 1 activation
+			GRB2 events in EGFR signaling
+				RAF/MAP kinase cascade
+					RAF activation
+					MEK activation
+						RAF phosphorylates MEK
+					ERK activation
+						ERK2 activation
+						ERK1 activation
+			SHC1 events in EGFR signaling
+			GAB1 signalosome
+				PIP3 activates AKT signaling
+					AKT phosphorylates targets in the cytosol
+					AKT phosphorylates targets in the nucleus
+					Negative regulation of the PI3K/AKT network
+			EGFR downregulation
+		Signaling by constitutively active EGFR
+	PI3K/AKT Signaling in Cancer
+		Constitutive PI3K/AKT Signaling in Cancer
+	Signaling by NOTCH1 in Cancer
+		Signaling by NOTCH1 PEST Domain Mutants in Cancer
+			Constitutive Signaling by NOTCH1 PEST Domain Mutants
+			Signaling by NOTCH1
+				Activated NOTCH1 Transmits Signal to the Nucleus
+				NOTCH1 Intracellular Domain Regulates Transcription
+		Signaling by NOTCH1 HD+PEST Domain Mutants in Cancer
+			Constitutive Signaling by NOTCH1 HD+PEST Domain Mutants
+		FBXW7 Mutants and NOTCH1 in Cancer
+			Loss of Function of FBXW7 in Cancer and NOTCH1 Signaling
+		Signaling by NOTCH1 t(7;9)(NOTCH1:M1580_K2555) Translocation Mutant
+			Constitutive Signaling by NOTCH1 t(7;9)(NOTCH1:M1580_K2555) Translocation Mutant
+		Signaling by NOTCH1 HD Domain Mutants in Cancer
+			Constitutive Signaling by NOTCH1 HD Domain Mutants
+	Signaling by FGFR in disease
+		Signaling by FGFR mutants
+			Signaling by FGFR3 mutants
+				Signaling by activated point mutants of FGFR3
+				t(4;14) translocations of FGFR3
+			Signaling by FGFR4 mutants
+			Signaling by FGFR1 mutants
+				Signaling by FGFR1 amplification mutants
+				Signaling by FGFR1 fusion mutants
+				Signaling by activated point mutants of FGFR1
+			Signaling by FGFR2 mutants
+				Activated point mutants of FGFR2
+				Signaling by FGFR2 amplification mutants
+		Signaling by FGFR
+			Negative regulation of FGFR signaling
+				Spry regulation of FGF signaling
+			Downstream signaling of activated FGFR
+				FRS2-mediated cascade
+				Phospholipase C-mediated cascade
+				SHC-mediated cascade
+				PI-3K cascade
+			FGFR ligand binding and activation
+				FGFR2 ligand binding and activation
+					FGFR2b ligand binding and activation
+					FGFR2c ligand binding and activation
+				FGFR3 ligand binding and activation
+					FGFR3b ligand binding and activation
+					FGFR3c ligand binding and activation
+				FGFR4 ligand binding and activation
+				Klotho-mediated ligand binding
+					betaKlotho-mediated ligand binding
+					FGFR1c and Klotho ligand binding and activation
+				FGFR1 ligand binding and activation
+					FGFR1b ligand binding and activation
+					FGFR1c ligand binding and activation
+	Amyloids
+Inhibition of HSL
+PLC-mediated hydrolysis of PIP2
+Steroid hormones
+Amino acid and oligopeptide SLC transporters
+APC-Cdc20 mediated degradation of Nek2A
+Cdc20:Phospho-APC/C mediated degradation of Cyclin A
+NICD traffics to nucleus
+TRAF6 Mediated Induction of proinflammatory cytokines
+	TAK1 activates NFkB by phosphorylation and activation of IKKs complex
+	MAP kinase activation in TLR cascade
+		MAPK targets/ Nuclear events mediated by MAP kinases
+			ERK/MAPK targets
+				ERKs are inactivated
+			CREB phosphorylation
+			Activation of the AP-1 family of transcription factors
+		JNK (c-Jun kinases) phosphorylation and activation mediated by activated human TAK1
+		activated TAK1 mediates p38 MAPK activation
+		ERK activation
+			ERK2 activation
+			ERK1 activation
+Signaling Pathways
+	Signaling by EGFR
+		EGFR interacts with phospholipase C-gamma
+			DAG and IP3 signaling
+				CaM pathway
+					Calmodulin induced events
+						PKA-mediated phosphorylation of CREB
+							PKA activation
+						CaMK IV-mediated phosphorylation of CREB
+						Cam-PDE 1 activation
+		GRB2 events in EGFR signaling
+			RAF/MAP kinase cascade
+				RAF activation
+				MEK activation
+					RAF phosphorylates MEK
+				ERK activation
+					ERK2 activation
+					ERK1 activation
+		SHC1 events in EGFR signaling
+		GAB1 signalosome
+			PIP3 activates AKT signaling
+				AKT phosphorylates targets in the cytosol
+				AKT phosphorylates targets in the nucleus
+				Negative regulation of the PI3K/AKT network
+		EGFR downregulation
+	Signaling by Insulin receptor
+		Insulin receptor signalling cascade
+			Signal attenuation
+			SHC-related events
+				SHC activation
+				SHC-mediated signalling
+			IRS-related events
+				IRS-mediated signalling
+					PI3K Cascade
+						Activation of PKB
+						PKB-mediated events
+							PDE3B signalling
+							mTOR signalling
+								Inhibition of TSC complex formation by PKB
+								mTORC1-mediated signalling
+									S6K1-mediated signalling
+										S6K1 signalling
+									Release of eIF4E
+								Energy dependent regulation of mTOR by LKB1-AMPK
+									Regulation of AMPK activity via LKB1
+									Regulation of Rheb GTPase activity by AMPK
+					SOS-mediated signalling
+				IRS activation
+		Insulin receptor recycling
+	Signaling by NGF
+		NGF signalling via TRKA from the plasma membrane
+			PI3K/AKT activation
+			PLC-gamma1 signalling
+			Activation of TRKA receptors
+				TRKA activation by NGF
+				NGF-independant TRKA activation
+			Nuclear Events (kinase and transcription factor activation)
+				ERK/MAPK targets
+					ERKs are inactivated
+				CREB phosphorylation
+			Retrograde neurotrophin signalling
+			Signalling to ERKs
+				Prolonged ERK activation events
+					ARMS-mediated activation
+					Frs2-mediated activation
+				Signalling to p38 via RIT and RIN
+				Signalling to RAS
+					p38MAPK events
+					Feedback control in the MAPK signaling module
+			Signalling to ERK5
+			Signalling to STAT3
+		NGF processing
+		p75 NTR receptor-mediated signalling
+			Regulated proteolysis of p75NTR
+			p75NTR negatively regulates cell cycle via SC1
+			p75NTR signals via NF-kB
+				p75NTR recruits signalling complexes
+				NF-kB is activated and signals survival
+			p75NTR regulates axonogenesis
+				Axonal growth inhibition (RHOA activation)
+				Axonal growth stimulation
+			Ceramide signalling
+			NFG and proNGF binds to p75NTR
+			Cell death signalling via NRAGE, NRIF and NADE
+				NRAGE signals death through JNK
+				NRIF signals cell death from the nucleus
+				NADE modulates death signalling
+	Signaling by Rho GTPases
+		Rho GTPase cycle
+	Signaling by ERBB2
+		SHC1 events in ERBB2 signaling
+		Downregulation of ERBB2:ERBB3 signaling
+		PI3K events in ERBB2 signaling
+		GRB2 events in ERBB2 signaling
+		GRB7 events in ERBB2 signaling
+		PLCG1 events in ERBB2 signaling
+	Signaling by ERBB4
+		PI3K events in ERBB4 signaling
+		SHC1 events in ERBB4 signaling
+		Nuclear signaling by ERBB4
+			Prolactin receptor signaling
+		Downregulation of ERBB4 signaling
+	Signaling by GPCR
+		Opioid Signalling
+			G-protein mediated events
+				PLC beta mediated events
+					Ca-dependent events
+						phospho-PLA2 pathway
+				Adenylate cyclase activating pathway
+			G-protein activation
+			DARPP-32 events
+		GPCR downstream signaling
+			Olfactory Signaling Pathway
+			G alpha (12/13) signalling events
+			G alpha (q) signalling events
+			G-protein beta:gamma signalling
+				G beta:gamma signalling through PLC beta
+				G beta:gamma signalling through PI3Kgamma
+			G alpha (s) signalling events
+			G alpha (z) signalling events
+			G alpha (i) signalling events
+		GPCR ligand binding
+			Class C/3 (Metabotropic glutamate/pheromone receptors)
+			Class A/1 (Rhodopsin-like receptors)
+				Peptide ligand-binding receptors
+					Tachykinin receptors bind tachykinins
+					Chemokine receptors bind chemokines
+					Orexin and neuropeptides FF and QRFP bind to their respective receptors
+					Vasopressin-like receptors
+					Relaxin receptors
+					Formyl peptide receptors bind formyl peptides and many other ligands
+				Opsins
+				Lysosphingolipid and LPA receptors
+				Hormone ligand-binding receptors
+				Free fatty acid receptors
+				Hydroxycarboxylic acid-binding receptors
+				Amine ligand-binding receptors
+					Histamine receptors
+					Dopamine receptors
+					Serotonin receptors
+					Adrenoceptors
+					Muscarinic acetylcholine receptors
+				Eicosanoid ligand-binding receptors
+					Prostanoid ligand receptors
+					Leukotriene receptors
+				Nucleotide-like (purinergic) receptors
+					P2Y receptors
+					Adenosine P1 receptors
+			Class B/2 (Secretin family receptors)
+				Glucagon-type ligand receptors
+				Calcitonin-like ligand receptors
+		Gastrin-CREB signalling pathway via PKC and MAPK
+			EGFR Transactivation by Gastrin
+	Signaling by Hippo
+	Signaling by SCF-KIT
+		Regulation of KIT signaling
+	Signaling by Type 1 Insulin-like Growth Factor 1 Receptor (IGF1R)
+		IGF1R signaling cascade
+			SHC-related events triggered by IGF1R
+			IRS-related events triggered by IGF1R
+	Signaling by NOTCH
+		Signaling by NOTCH4
+		Signaling by NOTCH2
+			NOTCH2 Activation and Transmission of Signal to the Nucleus
+			NOTCH2 intracellular domain regulates transcription
+		Signaling by NOTCH3
+		Signaling by NOTCH1
+			Activated NOTCH1 Transmits Signal to the Nucleus
+			NOTCH1 Intracellular Domain Regulates Transcription
+		Pre-NOTCH Expression and Processing
+			Pre-NOTCH Transcription and Translation
+			Pre-NOTCH Processing in Golgi
+			Pre-NOTCH Processing in the Endoplasmic Reticulum
+	Integrin cell surface interactions
+	Signaling by BMP
+	Signaling by PDGF
+		Downstream signal transduction
+	Signaling by Wnt
+		Degradation of beta-catenin by the destruction complex
+			Beta-catenin phosphorylation cascade
+		WNT ligand biogenesis and trafficking
+	Signaling by Activin
+		Antagonism of Activin by Follistatin
+	Signaling by VEGF
+		VEGF ligand-receptor interactions
+			VEGF binds to VEGFR leading to receptor dimerization
+			Neurophilin interactions with VEGF and VEGFR
+	Signaling by TGF-beta Receptor Complex
+		TGF-beta receptor signaling in EMT (epithelial to mesenchymal transition)
+		TGF-beta receptor signaling activates SMADs
+			Downregulation of TGF-beta receptor signaling
+	Signaling by FGFR
+		Negative regulation of FGFR signaling
+			Spry regulation of FGF signaling
+		Downstream signaling of activated FGFR
+			FRS2-mediated cascade
+			Phospholipase C-mediated cascade
+			SHC-mediated cascade
+			PI-3K cascade
+		FGFR ligand binding and activation
+			FGFR2 ligand binding and activation
+				FGFR2b ligand binding and activation
+				FGFR2c ligand binding and activation
+			FGFR3 ligand binding and activation
+				FGFR3b ligand binding and activation
+				FGFR3c ligand binding and activation
+			FGFR4 ligand binding and activation
+			Klotho-mediated ligand binding
+				betaKlotho-mediated ligand binding
+				FGFR1c and Klotho ligand binding and activation
+			FGFR1 ligand binding and activation
+				FGFR1b ligand binding and activation
+				FGFR1c ligand binding and activation
+Metabolism of proteins
+	Regulation of IGF Activity by IGFBP
+	Unfolded Protein Response
+		Activation of Chaperones by IRE1alpha
+			Activation of Chaperone Genes by XBP1(S)
+		PERK regulated gene expression
+			Activation of Genes by ATF4
+		Activation of Chaperones by ATF6-alpha
+			Activation of Chaperone Genes by ATF6-alpha
+	Mitochondrial Protein Import
+	Peptide hormone metabolism
+		Synthesis, Secretion, and Deacylation of Ghrelin
+		Metabolism of Angiotensinogen to Angiotensins
+		Incretin Synthesis, Secretion, and Inactivation
+			Synthesis, Secretion, and Inactivation of Glucagon-like Peptide-1 (GLP-1)
+			Synthesis, Secretion, and Inactivation of Glucose-dependent Insulinotropic Polypeptide (GIP)
+		Peptide hormone biosynthesis
+			Glycoprotein hormones
+		Insulin Processing
+	Post-translational protein modification
+		O-linked glycosylation of mucins
+			Termination of O-glycan biosynthesis
+		Post-translational modification: synthesis of GPI-anchored proteins
+			Synthesis of dolichyl-phosphate mannose
+			Synthesis of glycosylphosphatidylinositol (GPI)
+			Attachment of GPI anchor to uPAR
+		Asparagine N-linked glycosylation
+			N-glycan trimming in the ER and Calnexin/Calreticulin cycle
+				Calnexin/calreticulin cycle
+					ER Quality Control Compartment (ERQC)
+			Transport to the Golgi and subsequent modification
+				ER to Golgi Transport
+					COPII (Coat Protein 2) Mediated Vesicle Transport
+				N-glycan antennae elongation in the medial/trans-Golgi
+					Reactions specific to the hybrid N-glycan synthesis pathway
+					Reactions specific to the complex N-glycan synthesis pathway
+					N-Glycan antennae elongation
+				N-glycan trimming and elongation in the cis-Golgi
+					Progressive trimming of alpha-1,2-linked mannose residues from Man9/8/7GlcNAc2 to produce Man5GlcNAc2
+			Biosynthesis of the N-glycan precursor (dolichol lipid-linked oligosaccharide, LLO) and transfer to a nascent protein
+				Synthesis of substrates in N-glycan biosythesis
+					Synthesis of Dolichyl-phosphate
+					Synthesis of UDP-N-acetyl-glucosamine
+					Synthesis of GDP-mannose
+					Synthesis of dolichyl-phosphate-glucose
+		PTM: gamma carboxylation, hypusine formation and arylsulfatase activation
+			Hypusinylation
+			The activation of arylsulfatases
+			Gamma-carboxylation, transport, and amino-terminal cleavage of proteins
+				Transport of gamma-carboxylated protein precursors from the endoplasmic reticulum to the Golgi apparatus
+				Removal of aminoterminal propeptides from gamma-carboxylated proteins
+				Gamma-carboxylation of protein precursors
+Circadian Clock
+	BMAL1:CLOCK/NPAS2 Activates Circadian Expression
+	Circadian Repression of Expression by REV-ERBA
+	RORA Activates Circadian Expression
+DNA Repair
+	Double-Strand Break Repair
+		Homologous Recombination Repair
+			Homologous recombination repair of replication-independent double-strand breaks
+				Resolution of D-loop structures
+					Resolution of D-loop structures through Holliday junction intermediates
+					Resolution of D-loop structures through synthesis-dependent strand-annealing
+				Homologous DNA pairing and strand exchange
+					Presynaptic phase of homologous DNA pairing and strand exchange
+						Assembly of the RAD51-ssDNA nucleoprotein complex
+				ATM mediated response to DNA double-strand break
+					ATM mediated phosphorylation of repair proteins
+				Processing of DNA double-strand break ends
+				Recruitment of repair and signaling proteins to double-strand breaks
+					MRN complex relocalizes to nuclear foci
+						Assembly of the RAD50-MRE11-NBS1 complex at DNA double-strand breaks
+			Homologous recombination repair of replication-dependent double-strand breaks
+		Nonhomologous End-joining (NHEJ)
+			Processing of DNA ends prior to end rejoining
+	Base Excision Repair
+		Base-Excision Repair, AP Site Formation
+			Depurination
+				Recognition and association of DNA glycosylase with site containing an affected purine
+				Cleavage of the damaged purine
+			Depyrimidination
+				Recognition and association of DNA glycosylase with site containing an affected pyrimidine
+				Cleavage of the damaged pyrimidine
+		Resolution of Abasic Sites (AP sites)
+			Resolution of AP sites via the multiple-nucleotide patch replacement pathway
+				Removal of DNA patch containing abasic residue
+					Displacement of DNA glycosylase by APE1
+			Resolution of AP sites via the single-nucleotide replacement pathway
+				Base-free sugar-phosphate removal via the single-nucleotide replacement pathway
+	DNA Damage Bypass
+		Translesion synthesis by DNA polymerases bypassing lesion on DNA template
+			Translesion synthesis by HREV1
+			Translesion synthesis by Pol eta
+			Translesion synthesis by Pol zeta
+	DNA Damage Reversal
+		Reversal of Alkylation Damage By DNA Dioxygenases
+			ABH2 mediated Reversal of Alkylation Damage
+			ABH3 mediated Reversal of Alkylation Damage
+	Nucleotide Excision Repair
+		Transcription-coupled NER (TC-NER)
+			Formation of transcription-coupled NER (TC-NER) repair complex
+			Dual incision reaction in TC-NER
+			Gap-filling DNA repair synthesis and ligation in TC-NER
+				Repair synthesis for gap-filling by DNA polymerase in TC-NER
+		Global Genomic NER (GG-NER)
+			Dual incision reaction in GG-NER
+			Gap-filling DNA repair synthesis and ligation in GG-NER
+				Repair synthesis of patch ~27-30 bases long by DNA polymerase
+			DNA Damage Recognition in GG-NER
+			Formation of incision complex in GG-NER
+	Fanconi Anemia pathway
+		Regulation of the Fanconi anemia pathway
+Cellular responses to stress
+	Cellular response to hypoxia
+		Regulation of Hypoxia-inducible Factor (HIF) by Oxygen
+			Oxygen-dependent Asparagine Hydroxylation of Hypoxia-inducible Factor Alpha
+			Oxygen-dependent Proline Hydroxylation of Hypoxia-inducible Factor Alpha
+			Regulation of Gene Expression by Hypoxia-inducible Factor
+Developmental Biology
+	Axon guidance
+		Netrin-1 signaling
+			Netrin mediated repulsion signals
+			DCC mediated attractive signaling
+			Role of second messengers in netrin-1 signaling
+		Semaphorin interactions
+			Sema4D in semaphorin signaling
+				Sema4D induced cell migration and growth-cone collapse
+				Sema4D mediated inhibition of cell attachment and migration
+			Other semaphorin interactions
+			CRMPs in Sema3A signaling
+			Sema3A PAK dependent Axon repulsion
+			SEMA3A-Plexin repulsion signaling by inhibiting Integrin adhesion
+		NCAM signaling for neurite out-growth
+			RAF/MAP kinase cascade
+				RAF activation
+				MEK activation
+					RAF phosphorylates MEK
+				ERK activation
+					ERK2 activation
+					ERK1 activation
+			NCAM1 interactions
+		L1CAM interactions
+			Interaction between L1 and Ankyrins
+			Recycling pathway of L1
+			CHL1 interactions
+			Signal transduction by L1
+			NrCAM interactions
+			Neurofascin interactions
+		Signaling by Robo receptor
+			Role of Abl in Robo-Slit signaling
+			Activation of Rac
+			Inactivation of Cdc42 and Rac
+			Regulation of Commissural axon pathfinding by Slit and Robo
+	Signaling by NODAL
+		Regulation of Signaling by NODAL
+	Regulation of beta-cell development
+		Regulation of gene expression in beta cells
+			AKT-mediated inactivation of FOXO1A
+		Regulation of gene expression in endocrine-committed (NEUROG3+) progenitor cells
+		Regulation of gene expression in late stage (branching morphogenesis) pancreatic bud precursor cells
+		Regulation of gene expression in early pancreatic precursor cells
+	Transcriptional Regulation of White Adipocyte Differentiation
+	Myogenesis
+		CDO in myogenesis
+Apoptosis
+	Intrinsic Pathway for Apoptosis
+		Permeabilization of mitochondria
+		Activation and oligomerization of BAK protein
+		Activation of BID and translocation to mitochondria
+		Activation, translocation and oligomerization of BAX
+		BH3-only proteins associate with and inactivate anti-apoptotic BCL-2 members
+		Activation of BH3-only proteins
+			Activation of BMF and translocation to mitochondria
+			Activation of BIM and translocation to mitochondria
+			Activation of BAD and translocation to mitochondria
+			Activation of PUMA and translocation to mitochondria
+			Activation of NOXA and translocation to mitochondria
+		Apoptotic factor-mediated response
+			SMAC-mediated apoptotic response
+				SMAC binds to IAPs
+				SMAC-mediated dissociation of IAP:caspase complexes
+			Cytochrome c-mediated apoptotic response
+				Activation of caspases through apoptosome-mediated cleavage
+				Formation of apoptosome
+		Release of apoptotic factors from the mitochondria
+	Apoptotic execution phase
+		Apoptotic cleavage of cellular proteins
+			Caspase-mediated cleavage of cytoskeletal proteins
+			Breakdown of the nuclear lamina
+			Apoptotic cleavage of cell adhesion proteins
+		Apoptosis induced DNA fragmentation
+			Activation of DNA fragmentation factor
+		Stimulation of the cell death response by PAK-2p34
+	Extrinsic Pathway for Apoptosis
+		Regulation by c-FLIP
+		Caspase-8 activation
+			Dimerization of procaspase-8
+		Death Receptor Signalling
+			TRAIL signaling
+			TNF signaling
+			FasL/ CD95L signaling
+	Regulation of Apoptosis
+		Regulation of PAK-2p34 activity by PS-GAP/RHG10
+		Regulation of activated PAK-2p34 by proteasome mediated degradation
+		Role of DCC in regulating apoptosis

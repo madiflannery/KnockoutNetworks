@@ -36,6 +36,7 @@ public class KnockoutNetworks {
     private static final String KNOCKOUT_GENE_LIST = "screen_gene_list_uniprot.txt";
     private static final String DIFF_EXP_FILE = "off_genes_fromdiff_uniprot.txt";
     private static final String UNIPROT_UPDATE_FILE = "uniprot_updates.txt";
+    private static final String FASTDAS_MAPPING_FILE = "fastdas_col_mapping.txt";
     private static final String OUTPUT_FILENAME = "outfile";
     private static final String toUpdate = "toUpdate.txt";
     private static String biopaxFilename;
@@ -201,6 +202,8 @@ public class KnockoutNetworks {
             temp_filename = OUTPUT_FILENAME + "(" + temp + ")" + ".txt";
             temp++;
         } while(deleteFile(temp_filename));
+
+        deleteFile(FASTDAS_MAPPING_FILE);
 
     }
 
@@ -532,6 +535,18 @@ public class KnockoutNetworks {
         for(ProcessedData ko : knockouts) {
             if(ko.getToAdd()) {
                 boolean mapped = false;
+
+                try {
+                    //open normal file and active file
+                    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(new File(FASTDAS_MAPPING_FILE), true)));
+                    out.println(count+1%51 + ", " + ko.getGeneList().get(0));
+                    out.close();
+                }
+                catch (Exception e) {
+                    System.err.println(e.toString());
+                }
+
+
                 for (int i = 0; i < network.size(); i++) {
                     boolean setFree = true;
                     if (network.get(i).get(RDF_COL).contains("Protein")) {

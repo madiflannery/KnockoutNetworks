@@ -46,6 +46,8 @@ public class KnockoutNetworks {
     private static String inputDir;
 
     private static final int RDF_COL = 1; //0 indexed, for network species.txt file
+    private static final int STATUS_COL = 5; //0 indexed, for network species.txt file
+
 
     private static int rdfLen = 0;
 
@@ -537,9 +539,12 @@ public class KnockoutNetworks {
                 boolean mapped = false;
 
                 try {
-                    //open normal file and active file
                     PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(new File(FASTDAS_MAPPING_FILE), true)));
-                    out.println(count+1%51 + ", " + ko.getGeneList().get(0));
+
+                    if(count%50 ==1) {
+                        out.println("---------------------- NEW FILE ----------------------");
+                    }
+                    out.println(count%50 + ", " + ko.getGeneList().get(0));
                     out.close();
                 }
                 catch (Exception e) {
@@ -549,26 +554,29 @@ public class KnockoutNetworks {
 
                 for (int i = 0; i < network.size(); i++) {
                     boolean setFree = true;
-                    if (network.get(i).get(RDF_COL).contains("Protein")) {
-                        Protein p = ko.getProteins().get(network.get(i).get(RDF_COL));
-                        if (p != null) {
-                            //we have a matching protein, set inactive
-                            network.get(i).add("INACTIVE");
-                            setFree = false;
-                            mapped = true;
+                    //if(network.get(i).get(STATUS_COL).contains("INPUT")) {
+                        if (network.get(i).get(RDF_COL).contains("Protein")) {
+                            Protein p = ko.getProteins().get(network.get(i).get(RDF_COL));
+                            if (p != null) {
+                                //we have a matching protein, set inactive
+                                network.get(i).add("INACTIVE");
+                                setFree = false;
+                                mapped = true;
+                            }
+                        } else if (network.get(i).get(RDF_COL).contains("Complex")) {
+                            ArrayList<PhysicalEntity> complexTree = findComplexTree(network.get(i).get(RDF_COL), ko.getComplexes());
+                            if (complexTree != null) {
+                                //we have a complex in tree, set inactive
+                                network.get(i).add("INACTIVE");
+                                setFree = false;
+                                mapped = true;
+                            }
                         }
-                    } else if (network.get(i).get(RDF_COL).contains("Complex")) {
-                        ArrayList<PhysicalEntity> complexTree = findComplexTree(network.get(i).get(RDF_COL), ko.getComplexes());
-                        if (complexTree != null) {
-                            //we have a complex in tree, set inactive
-                            network.get(i).add("INACTIVE");
-                            setFree = false;
-                            mapped = true;
-                        }
-                    }
+                    //}
                     if (setFree) {
                         network.get(i).add(bg_network_rdf.get(network.get(i).get(RDF_COL)));
                     }
+
                 }
                 if (mapped) {
                     nummapped++;

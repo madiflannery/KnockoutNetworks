@@ -8,8 +8,8 @@ import java.util.*;
 public class ProcessFastDASOutput implements ProcessFastDAS_if{
 
     public static final String NODE_FILE = "";
-    public static final String FILE_PATH = "C:\\Users\\Madison\\Google Drive\\MSci\\Research Project\\KnockoutNetworks\\free_results\\";
-    public static final String OUTPUT_FILE = FILE_PATH + "output_processed.txt";
+    public static final String FILE_PATH = "C:\\Users\\Madison\\Google Drive\\MSci\\Research Project\\KnockoutNetworks\\normal_results\\";
+    public static final String OUTPUT_FILE = FILE_PATH + "output_processed_onlyreacs.txt";
     public static final String FASTDAS_COL_MAP_FILE = "C:\\Users\\Madison\\Documents\\KnockoutNetworks\\fastdas_col_mapping.txt";
     public static final String UNIPROT_MAPPING_FILE = "C:\\Users\\Madison\\Documents\\KnockoutNetworks\\input_files\\screen_gene_list_uniprot.txt";
     public static final String[] FOLDERNAMES = {"outfile", "outfile1", "outfile2", "outfile3"};
@@ -67,21 +67,22 @@ public class ProcessFastDASOutput implements ProcessFastDAS_if{
 
         //for each rdf
         for(String rdf : rdfs) {
-            ArrayList<String> temp_line = new ArrayList<>();
-            temp_line.add(rdf);
-            //for each ko
-            for(String ko : ko_names) {
-                //if rdf in KO's map
-                if(gene_names_to_network_rdf.get(ko).contains(rdf)) {
-                    //put 1 in output
-                    temp_line.add("1");
+            if(rdf.toLowerCase().contains("reaction")) {
+                ArrayList<String> temp_line = new ArrayList<>();
+                temp_line.add(rdf);
+                //for each ko
+                for (String ko : ko_names) {
+                    //if rdf in KO's map
+                    if (gene_names_to_network_rdf.get(ko).contains(rdf)) {
+                        //put 1 in output
+                        temp_line.add("1");
+                    } else {//else
+                        //put 0 in output
+                        temp_line.add("0");
+                    }
                 }
-                else {//else
-                    //put 0 in output
-                    temp_line.add("0");
-                }
+                output.add(temp_line);
             }
-            output.add(temp_line);
         }
 
         File outfile = new File(OUTPUT_FILE);
@@ -94,7 +95,7 @@ public class ProcessFastDASOutput implements ProcessFastDAS_if{
                 for (String s : line) {
                     strbuild.add(s);
                 }
-                out.println(strbuild.toString()+ "\n");
+                out.println(strbuild.toString());
             }
             out.close();
         }
@@ -111,7 +112,7 @@ public class ProcessFastDASOutput implements ProcessFastDAS_if{
             ArrayList<String> files = rdf_to_networks.get(rdf);
             for (String file : files) {
                 //get name of folder and the number of comparison
-                String temp = file.replace("C:\\Users\\Madison\\Google Drive\\MSci\\Research Project\\KnockoutNetworks\\free_results\\", "");
+                String temp = file.replace("C:\\Users\\Madison\\Google Drive\\MSci\\Research Project\\KnockoutNetworks\\normal_results\\", "");
                 temp = temp.replace("High_Conf\\Network_Control-", "");
                 temp = temp.substring(0, temp.indexOf("_"));
                 //System.out.print(temp);

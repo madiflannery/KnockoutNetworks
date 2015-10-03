@@ -32,9 +32,9 @@ public class KnockoutNetworks {
 
     //Filenames
     private static final String PARAMS_FILE = "parameters.txt";
-    private static final String NETWORK_FILE = "species.txt";
+    private static final String NETWORK_FILE = "species_old.txt";
     private static final String KNOCKOUT_GENE_LIST = "screen_gene_list_uniprot.txt";
-    private static final String DIFF_EXP_FILE = "off_genes_fromdiff_uniprot.txt";
+    private static final String DIFF_EXP_FILE = "ctrl_diff_exp_off_genes_uniprot.txt";
     private static final String UNIPROT_UPDATE_FILE = "uniprot_updates.txt";
     private static final String FASTDAS_MAPPING_FILE = "fastdas_col_mapping.txt";
     private static final String OUTPUT_FILENAME = "outfile";
@@ -195,17 +195,17 @@ public class KnockoutNetworks {
      * Deletes all output files if they exist to avoid file corruption
      */
     private static void deleteAllFiles() {
-        String temp_filename =OUTPUT_FILENAME + ".txt";
+        String temp_filename =outputDir+OUTPUT_FILENAME + ".txt";
         deleteFile(temp_filename);
         int temp = 1;
 
         //Keep trying to create directory with new number until successful
         do{
-            temp_filename = OUTPUT_FILENAME + "(" + temp + ")" + ".txt";
+            temp_filename = outputDir+OUTPUT_FILENAME + "(" + temp + ")" + ".txt";
             temp++;
         } while(deleteFile(temp_filename));
 
-        deleteFile(FASTDAS_MAPPING_FILE);
+        deleteFile(outputDir+FASTDAS_MAPPING_FILE);
 
     }
 
@@ -539,7 +539,7 @@ public class KnockoutNetworks {
                 boolean mapped = false;
 
                 try {
-                    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(new File(FASTDAS_MAPPING_FILE), true)));
+                    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(new File(outputDir+FASTDAS_MAPPING_FILE), true)));
 
                     if(count%50 ==1) {
                         out.println("---------------------- NEW FILE ----------------------");
@@ -666,7 +666,7 @@ public class KnockoutNetworks {
     }
 
     private static String findFilename() {
-        String temp_filename =OUTPUT_FILENAME + ".txt";
+        String temp_filename =outputDir + OUTPUT_FILENAME + ".txt";
         File temp_file = new File(temp_filename);
 
         //If the directory doesnt exist, create it
@@ -675,7 +675,7 @@ public class KnockoutNetworks {
 
             //Keep trying to create directory with new number until successful
             do{
-                temp_filename = OUTPUT_FILENAME + "(" + temp + ")" + ".txt";
+                temp_filename = outputDir + OUTPUT_FILENAME + "(" + temp + ")" + ".txt";
                 temp_file = new File(temp_filename);
                 temp++;
             } while(temp_file.exists());

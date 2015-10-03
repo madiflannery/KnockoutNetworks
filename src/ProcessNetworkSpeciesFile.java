@@ -4,6 +4,8 @@ import java.util.HashSet;
 
 /**
  * Created by Madison on 28/07/2015.
+ * this class is no longer needed....
+ *
  */
 public class ProcessNetworkSpeciesFile {
     private static final String NETWORK_FILE = "species.txt";

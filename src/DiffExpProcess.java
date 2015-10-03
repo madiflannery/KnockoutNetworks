@@ -8,8 +8,8 @@ import java.util.Iterator;
  * Created by Madison on 25/07/2015.
  */
 public class DiffExpProcess {
-    private static final String DIFF_EXP_FILE = "C:\\Users\\Madison\\Desktop\\Data Mapping 2\\zDiff_MDA468_Control_vs_EGF_counts.txt";
-    private static final String OFF_GENES = "C:\\Users\\Madison\\Desktop\\Data Mapping 2\\out_off_genes_highthreshold.txt";
+    private static final String DIFF_EXP_FILE = "C:\\Users\\Madison\\Desktop\\Data Mapping 2\\zDiff_MDA468_Hypoxia_vs_Control_counts.txt";
+    private static final String OFF_GENES = "C:\\Users\\Madison\\Desktop\\Data Mapping 2\\out_off_genes_hpx.txt";
     private static final int ensembl_col = 0,
                         ctrl1_col = 1,
                         ctrl2_col = 2,
